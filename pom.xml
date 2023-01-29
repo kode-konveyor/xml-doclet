@@ -76,6 +76,22 @@
 					<compilerId>javac</compilerId>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.4.1</version>
+					<configuration>
+						<doclet>com.kodekonveyor.xmldoclet.XmlDoclet</doclet>
+						<useStandardDocletOptions>false</useStandardDocletOptions>
+						<docletArtifact>
+							<groupId>com.kodekonveyor</groupId>
+							<artifactId>xml-doclet</artifactId>
+							<version>${project.version}</version>
+						</docletArtifact>
+						<show>private</show>
+					</configuration>
+			</plugin>
+			
 		</plugins>
 	</build>
 
