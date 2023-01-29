@@ -16,6 +16,7 @@
 		<downloadJavadocs>true</downloadJavadocs>
 		<java.version>19</java.version>
 		<jaxb-api.version>2.3.0</jaxb-api.version>
+		<junit.version>5.9.2</junit.version>
 	</properties>
 
 	<scm>
@@ -59,6 +60,25 @@
 			<artifactId>maven-javadoc-plugin</artifactId>
 			<version>3.4.1</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -76,6 +96,17 @@
 					<compilerId>javac</compilerId>
 				</configuration>
 			</plugin>
+	        <plugin>
+	            <artifactId>maven-surefire-plugin</artifactId>
+	            <version>2.19.1</version>
+	            <dependencies>
+	                <dependency>
+	                    <groupId>org.junit.platform</groupId>
+	                    <artifactId>junit-platform-surefire-provider</artifactId>
+	                    <version>1.1.0</version>
+	                </dependency>
+	            </dependencies>
+	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
