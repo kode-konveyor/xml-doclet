@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import javax.lang.model.SourceVersion;
+import javax.lang.model.element.Element;
 import javax.tools.Diagnostic.Kind;
 
 import org.w3c.dom.Document;
@@ -45,6 +46,9 @@ public class XmlDoclet implements Doclet {
 
 	@Override
 	public boolean run(DocletEnvironment docEnv) {
+		for (Element type : docEnv.getIncludedElements()) {
+
+		}
 		//		for (TypeElement type : ElementFilter
 		//				.typesIn(docEnv.getIncludedElements())) {
 		//		}
